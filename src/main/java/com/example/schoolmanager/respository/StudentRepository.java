@@ -11,6 +11,5 @@ public interface StudentRepository extends JpaRepository<Student, UUID> {
     Page<Student> findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(
             String name,
             String email,
-            Pageable pageable
-    );
+            Pageable pageable);
 }

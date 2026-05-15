@@ -1,4 +1,5 @@
 package com.example.schoolmanager.service;
+
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -27,12 +28,13 @@ public class StudentService {
     }
 
     public Student create(Student student) {
-        return repo.save(student);   // UUID tự sinh ở đây
+        return repo.save(student); // UUID tự sinh ở đây
     }
 
     public Student update(UUID id, Student student) {
         Student old = getById(id);
-        if (old == null) return null;
+        if (old == null)
+            return null;
 
         old.setName(student.getName());
         old.setEmail(student.getEmail());

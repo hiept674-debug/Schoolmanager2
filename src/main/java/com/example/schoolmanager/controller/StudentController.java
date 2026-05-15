@@ -22,7 +22,7 @@ import com.example.schoolmanager.model.Student;
 @RequestMapping("/api/students")
 @CrossOrigin // cho phép frontend gọi
 public class StudentController {
-    
+
     private final StudentService service;
 
     public StudentController(StudentService service) {
@@ -50,7 +50,7 @@ public class StudentController {
     // UPDATE
     @PutMapping("/{id}")
     public Student update(@PathVariable UUID id,
-                          @RequestBody Student student) {
+            @RequestBody Student student) {
         return service.update(id, student);
     }
 
@@ -65,8 +65,7 @@ public class StudentController {
     public Page<Student> search(
             @RequestParam(name = "keyword", required = false) String keyword,
             @RequestParam(name = "page", defaultValue = "0") int page,
-            @RequestParam(name = "size", defaultValue = "5") int size
-    ) {
+            @RequestParam(name = "size", defaultValue = "5") int size) {
         return service.search(keyword, page, size);
     }
 }
